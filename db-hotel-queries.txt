@@ -41,7 +41,7 @@
 #####GROUP BY#####
 9)Conta gli ospiti raggruppandoli per anno di nascita
 
-	SELECT COUNT(*), YEAR(date_of_birth) AS Data FROM ospiti GROUP BY YEAR(date_of_birth);
+	SELECT COUNT(*), YEAR(date_of_birth) AS Data FROM ospiti GROUP BY YEAR(date_of_birth) ORDER BY COUNT(*) DESC;
 	
 10)Somma i prezzi dei pagamenti raggruppandoli per status
  
@@ -51,11 +51,11 @@
 
 	SELECT COUNT(*), prenotazioni.* FROM prenotazioni
 	GROUP BY stanza_id  
-	ORDER BY `COUNT(*)` ASC;
+	ORDER BY `COUNT(*)` DESC;
 	
 12)Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti
 
-	SELECT COUNT(*), HOUR(created_at) AS ORARO_IN_ORE, id, stanza_id FROM prenotazioni GROUP BY HOUR(created_at) ORDER BY COUNT(*) DESC;
+	SELECT COUNT(*), HOUR(created_at) AS ORARIO_ALLE, id, stanza_id FROM prenotazioni GROUP BY HOUR(created_at) ORDER BY COUNT(*) DESC;
 
 #####JOIN#####
 13)Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
